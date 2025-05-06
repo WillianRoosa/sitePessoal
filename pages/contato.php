@@ -3,7 +3,7 @@
         <h2>Contato</h2>
 
         <div class="info-item">
-            <i class=" fa-solid fa-square-envelope fa-2xl"></i>
+            <i class=" fa-solid fa-square-envelope"></i>
             <p>willian_roosa@icloud.com</p>
         </div>
 
