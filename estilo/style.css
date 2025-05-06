@@ -478,7 +478,6 @@ section.error404 input:hover {
     width: 40px;
     padding: 30px 30px;
     color: #000000;
-    display: inline-block;
 }
 
 @media screen and (max-width: 768px) {
