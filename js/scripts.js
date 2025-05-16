@@ -36,4 +36,11 @@ $(function () {
       }
       */
   });
+
+  if ($("target").length > 0) {
+    // O elemento existe, portanto é necessário um scroll nos elementos. //
+    const elemento = "#" + $("target").attr("target");
+    const divScroll = $(elemento).offset().top;
+    $("html,body").animate({ scrollTop: divScroll }, 1000);
+  }
 });

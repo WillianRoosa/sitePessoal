@@ -6,7 +6,7 @@
 <head>
     <title>Site Pessoal</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:200,300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
     <link href="<?php echo INCLUDE_PATH ?>estilo/style.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="<?php echo INCLUDE_PATH; ?>../sitePessoal/img/logomarca.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,6 +79,11 @@
 
     <script src="<?php echo INCLUDE_PATH; ?>js/jquery.js"></script>
     <script src="<?php echo INCLUDE_PATH; ?>js/scripts.js"></script>
+    <?php
+    if ($url == 'home' || $url == '') {
+    ?>
+        <script src="<?php echo INCLUDE_PATH; ?>js/slider.js"></script>
+    <?php } ?>
     <?php
     if ($url == 'contato') {
     ?>

@@ -7,13 +7,7 @@
 
 /** Boot CSS **/
 
-html {
-    overflow-x: hidden;
-    height: 100%;
-    flex-direction: column;
-    display: flex;
-}
-
+html,
 body {
     overflow-x: hidden;
     height: 100%;
@@ -107,12 +101,21 @@ nav.desktop a {
     text-decoration: none;
 }
 
-section.banner-principal {
+section.banner-container {
     width: 100%;
     height: 600px;
-    background-image: url('../img/banner.avif');
-    background-size: cover;
     position: relative;
+}
+
+.banner-single {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
 }
 
 .overlay {
@@ -121,14 +124,14 @@ section.banner-principal {
     top: 0%;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 2;
     background-color: rgba(10, 10, 10, 0.3);
 }
 
-section.banner-principal form {
+section.banner-container form {
     width: 93%;
     max-width: 600px;
-    z-index: 2;
+    z-index: 3;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -136,21 +139,21 @@ section.banner-principal form {
     -ms-transform: translate(-50%, -50%);
 }
 
-section.banner-principal form h2 {
+section.banner-container form h2 {
     color: #f5f5f5;
     font-weight: 300;
     font-size: 25px;
     text-align: center;
 }
 
-section.banner-principal form input[type=email]:-webkit-autofill {
+section.banner-container form input[type=email]:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px #000000 inset !important;
     -webkit-text-fill-color: #f5f5f5 !important;
     /* cor do texto, se necessário */
     transition: background-color 5000s ease-in-out 0s;
 }
 
-section.banner-principal form input[type=email] {
+section.banner-container form input[type=email] {
     width: 100%;
     height: 50px;
     margin-top: 10px;
@@ -161,7 +164,7 @@ section.banner-principal form input[type=email] {
     border: 0;
 }
 
-section.banner-principal form input[type=submit] {
+section.banner-container form input[type=submit] {
     width: 100%;
     height: 50px;
     margin-top: 10px;
@@ -481,6 +484,28 @@ section.error404 input:hover {
     height: auto;
 }
 
+.bullets {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+}
+
+.bullets span {
+    margin: 0 5px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #2a7d00;
+}
+
+.bullets span.active-slider {
+    background: #f5f5f5;
+}
+
 @media screen and (max-width: 768px) {
     img {
         float: none !important;
@@ -544,7 +569,7 @@ section.error404 input:hover {
 
     nav.mobile ul {
         top: 100px;
-        z-index: 3;
+        z-index: 4;
         position: absolute;
         left: 0;
         width: 100%;

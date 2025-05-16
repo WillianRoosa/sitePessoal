@@ -1,4 +1,7 @@
-<section class="banner-principal"> <!-- Aqui fica o Banner principal -->
+<section class="banner-container"> <!-- Aqui fica o Banner principal -->
+    <div style="background-image: url('<?php echo INCLUDE_PATH; ?>img/banner.avif');" class="banner-single"></div> <!-- Banner-single -->
+    <div style="background-image: url('<?php echo INCLUDE_PATH; ?>img/banner2.avif');" class="banner-single"></div> <!-- Banner-single -->
+    <div style="background-image: url('<?php echo INCLUDE_PATH; ?>img/banner3.avif');" class="banner-single"></div> <!-- Banner-single -->
     <div class="overlay"></div> <!-- Aqui está meu overlay, deixar dinâmico o site -->
     <div class="center"> <!-- Center para deixar design responsivo -->
         <form>
@@ -7,11 +10,12 @@
             <input type="submit" name="acao" value="Enviar Cadastro !" />
         </form>
     </div> <!-- Center -->
-</section>
+    <div class="bullets"></div> <!-- Bullets -->
+</section> <!-- Banner-Countainer -->
 
 <section class="descricao-autor"> <!-- Aqui está toda descrição do autor -->
     <div class="center"> <!-- Center -->
-        <div class="w50 left"> <!-- w50 quer dizer que vai pegar 50% da largura da tela -->
+        <div id="sobre" class="w50 left"> <!-- w50 quer dizer que vai pegar 50% da largura da tela -->
             <h2>Willian Vinicius da Rosa</h2>
             <p>
                 Me chamo Willian Rosa tenho 23 anos, sou um desenvolvedor backend apaixonado por criar soluções robustas e escaláveis que fazem a diferença no desempenho e eficiência de sistemas. Com ampla experiência em tecnologias como (PHP, MySql, HTML, CSS, JavaScript, Laravel, etc.), tenho me especializado na construção de APIs, integração de bancos de dados e na implementação de processos que garantem a segurança e performance de plataformas de alto tráfego.
@@ -113,7 +117,7 @@
 
         </div> <!-- w50 Depoimento Container -->
 
-        <div class="w50 left servicos-container"> <!-- w50 Serviços Container -->
+        <div id="servicos" class="w50 left servicos-container"> <!-- w50 Serviços Container -->
             <h2 class="title">Serviços</h2>
             <div class="servicos"> <!-- Recebe os tipos de serviços prestados -->
                 <ul>
