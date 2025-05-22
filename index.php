@@ -16,7 +16,7 @@
 </head>
 
 <body>
-
+    <base base="<?php echo INCLUDE_PATH; ?>" />
     <?php
     $url = isset($_GET['url']) ? $_GET['url'] : 'home';
 
@@ -38,7 +38,7 @@
                     <li><a href="<?php echo INCLUDE_PATH; ?>">Home</a></li>
                     <li><a href="<?php echo INCLUDE_PATH; ?>sobre">Sobre</a></li>
                     <li><a href="<?php echo INCLUDE_PATH; ?>servicos">Serviços</a></li>
-                    <li><a href="<?php echo INCLUDE_PATH; ?>contato">Contato</a></li>
+                    <li><a realtime="contato" href="<?php echo INCLUDE_PATH; ?>contato">Contato</a></li>
                 </ul>
             </nav>
 
@@ -48,7 +48,7 @@
                     <li><a href="<?php echo INCLUDE_PATH; ?>">Home</a></li>
                     <li><a href="<?php echo INCLUDE_PATH; ?>sobre">Sobre</a></li>
                     <li><a href="<?php echo INCLUDE_PATH; ?>servicos">Serviços</a></li>
-                    <li><a href="<?php echo INCLUDE_PATH; ?>contato">Contato</a></li>
+                    <li><a realtime="contato" href="<?php echo INCLUDE_PATH; ?>contato">Contato</a></li>
                 </ul>
             </nav>
             <div class="clear"></div> <!-- Clear -->
@@ -78,6 +78,7 @@
     </footer>
 
     <script src="<?php echo INCLUDE_PATH; ?>js/jquery.js"></script>
+    <script src="<?php echo INCLUDE_PATH; ?>js/constants.js"></script>
     <script src="<?php echo INCLUDE_PATH; ?>js/scripts.js"></script>
     <?php
     if ($url == 'home' || $url == '') {

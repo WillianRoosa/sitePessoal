@@ -4,7 +4,17 @@
     <div style="background-image: url('<?php echo INCLUDE_PATH; ?>img/banner3.avif');" class="banner-single"></div> <!-- Banner-single -->
     <div class="overlay"></div> <!-- Aqui está meu overlay, deixar dinâmico o site -->
     <div class="center"> <!-- Center para deixar design responsivo -->
-        <form>
+        <?php
+        if (isset($_POST['acao'])) {
+            // Enviei o formulário //
+            if ($email != '') {
+                $email = $_POST['email'];
+            } else {
+                echo 'Insira um e-mail válido!';
+            }
+        }
+        ?>
+        <form method="post">
             <h2>Digite seu melhor e-mail !</h2>
             <input type="email" name="email" required />
             <input type="submit" name="acao" value="Enviar Cadastro !" />
@@ -86,32 +96,97 @@
     <div class="center">
         <div class="w50 left depoimentos-container"> <!-- w50 Depoimento Container -->
 
-            <h2 class="title">Depoimento dos clientes</h2>
+            <h2 class="title">Experiências</h2>
 
             <div class="depoimento-single"> <!-- Recebe os depoimentos dos clientes -->
                 <div class="depoimento-descricao"> <!-- Recebe os depoimentos dos clintes referente aos trabalhos prestados -->
+                    <p class="nome-autor">— Grupo Care Business | Desenvolvedor PHP e Suporte Técnico | Jun 2024 - Jan 2025.</p><br>
+
+                    <h4>Responsabilidades:</h4>
+
                     <p>
-                        "Estou impressionado com o trabalho realizado na criação do nosso site. A equipe foi extremamente profissional, atendeu a todas as nossas necessidades e entregou um produto final que superou as nossas expectativas. O design é moderno, a navegação é intuitiva, e o site é altamente responsivo. Recebemos muitos elogios dos nossos clientes e isso ajudou a aumentar nossa visibilidade online. Com certeza, recomendaria o serviço a outras empresas."
+                        * Atuação como Desenvolvedor PHP Júnior, combinando suporte técnico e desenvolvimento de software. Responsável pelo atendimento e interação direta com clientes, realizando análises e propondo melhorias para o ERP, além de contribuir ativamente nas sprints para otimização de desempenho e novas funcionalidades.<br>
+
+                        * Participação ativa nas sprints para otimização do desempenho do ERP.<br>
+
+                        * Participação em reuniões semanais com Product Owners para alinhamento e evolução do projeto, bem como na organização e acompanhamento das tasks dos desenvolvedores através da ferramenta Asana.<br>
+
+                        * Apoio na análise e implementação de integrações com plataformas como iPaaS e Microsoft Azure, além de colaborar no desenvolvimento de soluções com inteligência artificial aplicadas a processos fiscais e jurídicos.
+                    </p> <br>
+
+                    <h4>Principais entregas e resultados:</h4>
+
+                    <p>
+                        * Organização e acompanhamento semanal das tasks dos desenvolvedores utilizando a ferramenta Asana.<br>
+
+                        * Realização de reuniões e alinhamentos com clientes para definição e priorização de melhorias no ERP.<br>
+
+                        * Suporte técnico e contribuição direta para a evolução do produto, com foco em estabilidade e performance.
+                    </p><br>
+
+                    <h4>Competências:</h4>
+
+                    <p>
+                        PHP - Laravel - Desenvolvimento backend - Análise de dados - Capacidade analítica - Trabalho em equipe - Interação com clientes - HTML5 - CSS - Git - Programação - Comunicação - Atendimento ao cliente - Monitoramento proativo
                     </p>
-                    <p class="nome-autor">— Guilherme Grillo, Co-Fundador, DankiCode.</p><br>
                 </div>
             </div> <!-- Depoimento Single -->
 
             <div class="depoimento-single"> <!-- Recebe os depoimentos dos clientes -->
                 <div class="depoimento-descricao"> <!-- Recebe os depoimentos dos clintes referente aos trabalhos prestados -->
+                    <p class="nome-autor">— Tech Solutions Digital | Desenvolvedor PHP Junior | Jan 2023 - Dez 2023.</p><br>
+
+                    <h4>Responsabilidades:</h4>
+
                     <p>
-                        Quero agradecer pela parceria na criação do nosso novo site. O processo foi muito tranquilo e a equipe foi sempre muito atenciosa. O site está não só bonito, mas também funcional e otimizado, o que tem feito toda a diferença para nossos clientes. A experiência do usuário melhorou significativamente, e isso tem se refletido em mais conversões e uma maior satisfação dos nossos usuários."
+                        * Desenvolvimento e manutenção de sistemas web utilizando PHP 7+ e Laravel.<br>
+
+                        * Criação de APIs RESTful para integração entre sistemas internos e aplicativos mobile.<br>
+
+                        * Implementação de autenticação e autorização com OAuth 2.0.<br>
+
+                        * Otimização de consultas SQL para melhorar a performance de sistemas críticos.<br>
+
+                        * Participação em code reviews, seguindo boas práticas de Clean Code e PSR.<br>
+
+                        * Integração com serviços de terceiros, como PagSeguro, SendGrid e AWS S3.
+                    </p><br>
+
+                    <h4>Principais conquistas:</h4>
+
+                    <p>
+                        * Redução do tempo de resposta da API em 35% após reestruturação do código e otimização de queries.<br>
+
+                        * Desenvolvimento de um sistema de gestão de conteúdo (CMS) personalizado, aumentando a produtividade do time de marketing.
                     </p>
-                    <p class="nome-autor">— Lucas Pereira, Coordenador de TI, Rocketseat.</p><br>
                 </div>
             </div> <!-- Depoimento Single -->
 
-            <div class="depoimento-single"> <!-- Recebe os depoimentos dos clientes -->
-                <div class="depoimento-descricao"> <!-- Recebe os depoimentos dos clintes referente aos trabalhos prestados -->
+            <div class="depoimento-single"> <!-- Recebe os depoimentos referente os trabalho -->
+                <div class="depoimento-descricao"> <!-- Recebe as experiência referente aos trabalhos prestados -->
+                    <p class="nome-autor">— Inova Web Solutions | Desenvolvedor Backend PHP | Mar 2020 - Dez 2021.</p><br>
+
+                    <h4>Responsabilidades:</h4>
+
                     <p>
-                        "A criação do nosso site foi uma experiência maravilhosa. Desde o primeiro contato até a entrega final, a comunicação foi clara, eficiente e sempre com foco nas nossas necessidades. O site ficou incrível e já estamos vendo resultados em termos de aumento no tráfego e nas vendas. O suporte pós-lançamento também tem sido excelente. Sem dúvida, um investimento que valeu a pena."
+                        * Desenvolvimento de sistemas de e-commerce utilizando PHP com o framework CodeIgniter.<br>
+
+                        * Criação e manutenção de módulos personalizados para plataformas como WooCommerce e Magento.<br>
+
+                        * Implementação de rotinas de envio de e-mails transacionais utilizando PHPMailer.<br>
+
+                        * Manutenção de banco de dados MySQL, com foco em segurança e integridade dos dados.<br>
+
+                        * Aplicação de testes automatizados com PHPUnit para garantir qualidade do código.
+                    </p><br>
+
+                    <h4>Principais conquistas:</h4>
+
+                    <p>
+                        * Implementação de uma rotina de backup automatizada, reduzindo riscos de perda de dados.<br>
+
+                        * Responsável pela migração bem-sucedida de um sistema legado em PHP 5.6 para PHP 7.4, melhorando a segurança e performance.
                     </p>
-                    <p class="nome-autor">— Paulo Silveira, CEO, Alura.</p>
                 </div>
             </div> <!-- Depoimento Single -->
 
@@ -150,7 +225,7 @@
 
                 <ul>
                     <li>
-                        <h3>Desenvolvimento de Inteligência Artificial e Machine Learning</h3>
+                        <h3>Desenvolvimento com Inteligência Artificial e Machine Learning</h3>
                         <p>Implementação de soluções de IA: Desenvolvimento de sistemas que utilizam inteligência artificial para automatizar tarefas, melhorar a tomada de decisões ou criar produtos inovadores.</p>
                         <p>Análise de dados e modelagem preditiva: Uso de técnicas de machine learning para analisar grandes volumes de dados e gerar insights ou previsões.
                         </p>

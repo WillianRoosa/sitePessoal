@@ -43,4 +43,14 @@ $(function () {
     const divScroll = $(elemento).offset().top;
     $("html,body").animate({ scrollTop: divScroll }, 1000);
   }
+
+  // Função para carrgemanto em tempo real da página e dinâmico. //
+  carregarDinamico();
+  function carregarDinamico() {
+    $("[realtime]").click(function () {
+      let pagina = $(this).attr("realtime");
+      $("main").load(include_path + "pages/" + pagina + ".php");
+      return false;
+    });
+  }
 });
