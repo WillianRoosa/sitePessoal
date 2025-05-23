@@ -16,15 +16,18 @@ class Email
 
         // Config básicas de SMPT //
         $this->mailer->isSMTP(); // Define o uso do SMPT //
-        $this->mailer->Host = 'smtp.gmail.com'; // Servidor SMPT //
+        $this->mailer->Host = getenv('MAIL_HOST'); // Servidor SMPT //
         $this->mailer->SMTPAuth = true; // Habilita a autenticação SMPT //
-        $this->mailer->Username = 'willian.dev2025@gmail.com'; // Seu Email //
-        $this->mailer->Password = 'kkrnulwcdttrruxa'; // Senha ou App password //
+        $this->mailer->Username = getenv('MAIL_USERNAME'); // Seu Email //
+        $this->mailer->Password = getenv('MAIL_PASSWORD'); // Senha ou App password //
         $this->mailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Criptografia TLS 
-        $this->mailer->Port = 587; // Porta de envio //
+        $this->mailer->Port = getenv('MAIL_PORT'); // Porta de envio //
 
         // Define quem está enviando o e-mail //
-        $this->mailer->setFrom('willian.dev2025@gmail.com', 'Willian');
+        $this->mailer->setFrom(
+            $_ENV['MAIL_FROM_ADDRESS'],
+            $_ENV['MAIL_FROM_NAME']
+        );
 
         // Configurações adicionais //
         $this->mailer->CharSet = 'UTF-8'; // Define o charset para UTF-8 //

@@ -1,4 +1,8 @@
-<?php include('config.php'); ?>
+<?php
+ini_set('display_errors', 1); // Ativa a exibição de erros //
+ini_set('display_startup_errors', 1); // Ativa a exibição de erros ocorridos durante a inicialização do PHP //
+error_reporting(E_ALL); // Define o nível de reporte dos erros //
+include('config.php'); ?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
