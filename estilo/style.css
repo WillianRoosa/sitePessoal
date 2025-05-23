@@ -618,4 +618,26 @@ section.error404 input:hover {
         width: 85px;
         border: 2px solid #2a7d00;
     }
+
+    .bullets {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 5;
+    }
+
+    .bullets span {
+        margin: 0 5px;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        cursor: pointer;
+        background-color: #2a7d00;
+    }
+
+    .bullets span.active-slider {
+        background: #f5f5f5;
+    }
 }
