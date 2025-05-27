@@ -2,7 +2,9 @@
 ini_set('display_errors', 1); // Ativa a exibição de erros //
 ini_set('display_startup_errors', 1); // Ativa a exibição de erros ocorridos durante a inicialização do PHP //
 error_reporting(E_ALL); // Define o nível de reporte dos erros //
-include('config.php'); ?>
+
+require_once __DIR__ . '/config.php'; // Carrega as configurações e dependências // 
+?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -21,7 +23,6 @@ include('config.php'); ?>
 
 <body>
     <?php
-    require_once __DIR__ . '/config.php'; // Carrega as configurações e dependências //
 
     use EmailEnv\Email; // Usa o Namespace da classe de e-mail //
 
@@ -111,6 +112,7 @@ include('config.php'); ?>
     ?>
 
     <base base="<?php echo INCLUDE_PATH; ?>" />
+
     <?php
     $url = isset($_GET['url']) ? $_GET['url'] : 'home';
 
@@ -124,6 +126,7 @@ include('config.php'); ?>
             break;
     }
     ?>
+    
     <header>
         <div class="center"> <!-- Center usado para trabalhar com design responsivo -->
             <div class="logo left"><img src="<?php echo INCLUDE_PATH; ?>img/logomarca.png"></div> <!-- Logo site -->
