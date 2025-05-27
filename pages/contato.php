@@ -14,35 +14,36 @@
 
         <div class="info-item">
             <i class="fa-brands fa-linkedin"></i>
-            <p>https://www.linkedin.com/in/willian-rosa-0500b6238/</p>
+            <a href="https://www.linkedin.com/in/willian-rosa-0500b6238/" target="_blank" rel="noopener noreferrer">https://www.linkedin.com/in/willian-rosa-0500b6238/</a>
         </div>
 
         <div class="info-item">
             <i class="fa-brands fa-square-github"></i>
-            <p>https://github.com/WillianRoosa</p>
+            <a href="https://github.com/WillianRoosa" target="_blank" rel="noopener noreferrer">https://github.com/WillianRoosa</a>
         </div>
     </div> <!-- Contato-Info -->
 
     <div class="contato-form">
         <div class="center">
             <h2>Envie sua mensagem</h2>
-            <form>
+            <form method="post">
                 <div class="input-icon">
                     <i class="fa-solid fa-user"></i>
-                    <input type="text" name="nome" placeholder="Nome" required><br>
+                    <input required type="text" name="nome" placeholder="Nome" required><br>
                 </div>
 
                 <div class="input-icon">
                     <i class="fa-solid fa-envelope"></i>
-                    <input type="email" name="email" placeholder="E-mail" required><br>
+                    <input required type="email" name="email" placeholder="E-mail" required><br>
                 </div>
 
                 <div class="input-icon">
                     <i class="fa-solid fa-phone"></i>
-                    <input type="tel" name="telefone" pattern="\(\d{2}\)\s\d{4,5}-\d{4}" placeholder="Telefone..." required><br>
+                    <input required type="tel" name="telefone" pattern="\(\d{2}\)\s\d{4,5}-\d{4}" placeholder="Telefone..." required><br>
                 </div>
 
-                <textarea name="mensagem" placeholder="Sua mensagem..."></textarea><br>
+                <textarea required name="mensagem" placeholder="Sua mensagem..."></textarea><br>
+                <input type="hidden" name="identificador" value="form_contato" />
                 <input type="submit" name="acao" value="Enviar">
             </form>
         </div> <!-- Center -->

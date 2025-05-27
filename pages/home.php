@@ -4,44 +4,11 @@
     <div style="background-image: url('<?php echo INCLUDE_PATH; ?>img/banner3.avif');" class="banner-single"></div> <!-- Banner-single -->
     <div class="overlay"></div> <!-- Aqui está meu overlay, deixar dinâmico o site -->
     <div class="center"> <!-- Center para deixar design responsivo -->
-        <?php
-        require_once __DIR__ . '/../config.php'; // Carrega as configurações e dependências //
 
-        use EmailEnv\Email; // Usa o Namespace da classe de e-mail //
-
-        // Verifica se o formulário foi enviado //
-        if (isset($_POST['acao'])) {
-            if ($_POST['email'] != '') { // Verifica se o e-mail não está vazio //
-                $emailInput = $_POST['email']; // Armazena o e-mail enviado pelo usuário //
-
-                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { // Valida se o e-mail está no formato correto //
-
-                    $email = new Email(); // Intancia da classe de envio de e-mail //
-
-                    $resultado = $email->enviar(
-                        $emailInput, // E-mail do usuário //
-                        'Nome', // Nome do destinatário //
-                        'Novo cadastro no site!!!', // Assunto do e-mail //
-                        '<p>Obrigado pelo Cadastro!</p><hr>' . $emailInput // Corpo da mensagem HTML //
-                    );
-
-                    // Verifica se o envio foi bem sucedido //
-                    if ($resultado === true) {
-                        echo '<script> alert("E-mail enviado com sucesso!");</script>';
-                    } else {
-                        echo '<script> alert("Erro ao enviar e-mail: ' . $resultado . '");</script>';
-                    }
-                } else {
-                    echo '<script>alert("Não é um e-mail válido!)"</script>';
-                }
-            } else {
-                echo '<script>alert("Campos vázios não são permitidos!")</script>';
-            }
-        }
-        ?>
         <form method="post">
             <h2>Digite seu melhor e-mail !</h2>
             <input type="email" name="email" required />
+            <input type="hidden" name="identificador" value="form_home" />
             <input type="submit" name="acao" value="Enviar Cadastro !" />
         </form>
     </div> <!-- Center -->
