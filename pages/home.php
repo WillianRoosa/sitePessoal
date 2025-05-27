@@ -8,8 +8,9 @@
         <form method="post">
             <h2>Digite seu melhor e-mail !</h2>
             <input type="email" name="email" required />
-            <input type="hidden" name="identificador" value="form_home" />
-            <input type="submit" name="acao" value="Enviar Cadastro !" />
+            <input type="hidden" name="identificador" value="form-home" />
+            <input type="hidden" name="acao" value="enviar" />
+            <input type="submit" value="Enviar Cadastro !" />
         </form>
     </div> <!-- Center -->
     <div class="bullets"></div> <!-- Bullets -->

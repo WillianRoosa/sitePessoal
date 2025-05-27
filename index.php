@@ -22,94 +22,6 @@ require_once __DIR__ . '/config.php'; // Carrega as configurações e dependênc
 </head>
 
 <body>
-    <?php
-
-    use EmailEnv\Email; // Usa o Namespace da classe de e-mail //
-
-    $destSite = $_ENV['MAIL_FROM_TO'];
-
-    // Verifica se o formulário foi enviado //
-    if (isset($_POST['acao']) && $_POST['identificador'] === 'form_home') {
-        if ($_POST['email'] != '') { // Verifica se o e-mail não está vazio //
-
-            $emailInput = $_POST['email']; // Armazena o e-mail enviado pelo usuário //
-
-            if (filter_var($emailInput, FILTER_VALIDATE_EMAIL)) { // Valida se o e-mail está no formato correto //
-
-                $assunto = 'Novo cadastro no site';
-                $corpoHtml = '<p> Um novo usuário se cadastrou com o seguinte e-mail: ' . htmlspecialchars($emailInput) . '</p>';
-
-                $email = new Email(); // Intancia da classe de envio de e-mail //
-
-                // Envia e-mail de confirmação para o cliente //
-                $resultado = $email->enviar(
-                    $emailInput, // E-mail do usuário //
-                    'Cliente', // Nome do destinatário //
-                    'Confirmação de cadastro !!!', // Assunto do e-mail //
-                    '<p>Olá Prezado Cliente, <br> Recebemos seu cadastro com sucesso!</p>' // Corpo da mensagem HTML //
-                );
-
-                // Aqui envia para o e-mail do site, quando um usuário se cadastrar //
-                $resultado = $email->enviar(
-                    $destSite, // E-mail enviado para Adm site //
-                    'Adin Site', // Nome do Adm site, caso necessário //
-                    $assunto, // Assunto pré definido na variável acima //
-                    $corpoHtml // Corpo com a mensagem pré-definida acima //
-                );
-
-                // Verifica se o envio foi bem sucedido //
-                if ($resultado === true) {
-                    echo '<script> alert("E-mail enviado com sucesso!");</script>';
-                } else {
-                    echo '<script> alert("Erro ao enviar e-mail: ' . $resultado . '");</script>';
-                }
-            } else {
-                echo '<script>alert("Não é um e-mail válido!")</script>';
-            }
-        } else {
-            echo '<script>alert("Campos vazios não são permitidos!")</script>';
-        }
-    } else if (isset($_POST['acao']) && $_POST['identificador'] === 'form_contato') {
-        $assunto = 'Nova mensagem do site Codex Pro';
-        $corpoHtml = '';
-
-        // Monta o corpo da mensagem com todos os campos enviados //
-        foreach ($_POST as $key => $value) {
-            if ($key !== 'acao' && $key !== 'identificador') { // Ignora campos de controle
-                $corpoHtml .= ucfirst($key) . ": " . htmlspecialchars($value) . "<hr>";
-            }
-        }
-
-        $emailInput = $_POST['email']; // Captura o e-mail do cliente //
-
-        if (filter_var($emailInput, FILTER_VALIDATE_EMAIL)) { // Valida se o e-mail está no formato correto //
-
-            $email = new Email(); // Instancia da classe de envio de e-mail //
-
-            $resultado = $email->enviar(
-                $emailInput, // E-mail do usuário //
-                $_POST['nome'], // Nome do cliente //
-                'Confirmação de contato', // Assunto do e-mail //
-                '<p>Olá ' . htmlspecialchars($_POST['nome']) . ', nossa equipe de suporte recebeu seu e-mail. <br> Retornaremos o mais breve possível.</p>' // Corpo da mensagem //
-            );
-
-            // E-mail para o site //
-            $resultado = $email->enviar(
-                $destSite, // E-mail enviado ao Adm site //
-                'Admin Site', // Nome do Adm site, caso necessário //
-                $assunto, // Assunto do e-mail pré definido na variável acima //
-                $corpoHtml // Corpo da mensagem preenchido na tela de contato //
-            );
-
-            // Verifica se o envio foi bem-sucedido
-            if ($resultado === true) {
-                echo '<script> alert("E-mail enviado com sucesso!");</script>';
-            } else {
-                echo '<script> alert("Erro ao enviar e-mail: ' . $resultado . '");</script>';
-            }
-        }
-    }
-    ?>
 
     <base base="<?php echo INCLUDE_PATH; ?>" />
 
@@ -126,7 +38,13 @@ require_once __DIR__ . '/config.php'; // Carrega as configurações e dependênc
             break;
     }
     ?>
-    
+
+    <div class="sucesso"><i class="fa-regular fa-circle-check"></i>E-mail enviado com sucesso !</div> <!-- Sucesso -->
+    <div class="erro"><i class="fa-solid fa-circle-xmark"></i>Erro ao enviar o e-mail !</div> <!-- Erro -->
+    <div class="overlay-loading">
+        <img src="<?php echo INCLUDE_PATH; ?>img/ajax-loader.gif" />
+    </div> <!-- Overlay Loading -->
+
     <header>
         <div class="center"> <!-- Center usado para trabalhar com design responsivo -->
             <div class="logo left"><img src="<?php echo INCLUDE_PATH; ?>img/logomarca.png"></div> <!-- Logo site -->
@@ -187,6 +105,7 @@ require_once __DIR__ . '/config.php'; // Carrega as configurações e dependênc
     ?>
         <script src="pages/contato.php"></script>
     <?php } ?>
+    <script src="<?php echo INCLUDE_PATH; ?>js/formularios.js"></script>
 </body>
 
 </html>

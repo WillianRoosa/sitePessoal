@@ -29,23 +29,25 @@
             <form method="post">
                 <div class="input-icon">
                     <i class="fa-solid fa-user"></i>
-                    <input required type="text" name="nome" placeholder="Nome" required><br>
+                    <input type="text" name="nome" placeholder="Nome" required><br>
                 </div>
 
                 <div class="input-icon">
                     <i class="fa-solid fa-envelope"></i>
-                    <input required type="email" name="email" placeholder="E-mail" required><br>
+                    <input type="email" name="email" placeholder="E-mail" required><br>
                 </div>
 
                 <div class="input-icon">
                     <i class="fa-solid fa-phone"></i>
-                    <input required type="tel" name="telefone" pattern="\(\d{2}\)\s\d{4,5}-\d{4}" placeholder="Telefone..." required><br>
+                    <input type="tel" name="telefone" id="tel" placeholder="Telefone..." required><br>
                 </div>
 
                 <textarea required name="mensagem" placeholder="Sua mensagem..."></textarea><br>
-                <input type="hidden" name="identificador" value="form_contato" />
-                <input type="submit" name="acao" value="Enviar">
+                <input type="hidden" name="identificador" value="form-contato" />
+                <input type="hidden" name="acao" value="enviar" />
+                <input type="submit" value="Enviar">
             </form>
+            <script src="js/validacao.js"></script>
         </div> <!-- Center -->
     </div> <!-- Contato-Form -->
 </div> <!-- Contato-Container -->
